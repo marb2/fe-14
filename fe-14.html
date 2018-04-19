@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>fe-14</title>    
+    </head>
+    <body>
+        <table border="1">
+            <thead>
+                <tr>
+                    <td>Data</td>
+                    <td>Numeris</td>
+                    <td>Atstumas</td>
+                    <td>Laikas</td>
+                    <td>Greitis</td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <script>
+            var duomenys = [
+                ['2017-07-07 17:07:07', 'ABC123',8765,233],
+                ['2016-06-06 16:06:06', 'DEF456',3678,89],
+                ['2015-05-05 15:05:05', 'GHI789',4754,119],
+                ['2014-04-04 14:04:04', 'JKL123',6432,165]
+            ];
+            var tekstas = '';
+            for (i = 0; i < duomenys.length; i++) {
+                if (!duomenys[i][3]) {
+                    continue;
+                }
+                tekstas += '<tr>';
+                for (j = 0; j < duomenys[i].length; j++) {
+                    tekstas += stulpelis(duomenys[i][j]); 
+                }   
+                tekstas += stulpelis(Math.round(duomenys[i][2] / duomenys[i][3] * 3.6)) + '</tr>';
+            }
+                document.querySelector('tbody').innerHTML = tekstas;
+
+                function stulpelis(reiksme) {
+                var td = '<td>' + reiksme + '</td>';
+                return td;
+            }
+        </script>
+    </body>
+</html>
